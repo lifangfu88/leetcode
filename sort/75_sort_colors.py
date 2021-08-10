@@ -32,7 +32,6 @@ class Solution:
 
         sort(0, len(nums) - 1)
 
-
     def sort_olors(self, nums: List[int]) -> None:
         """
         O(n), as there are only 3 values, smallest to front and largest to the end
