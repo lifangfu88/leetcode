@@ -7,6 +7,7 @@ dir = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 
 class Solution:
     """
+    https://leetcode.com/problems/max-area-of-island/
     standard BFS, time: O(R*C), aka O(n), visit very value once
     """
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
