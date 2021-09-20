@@ -39,3 +39,37 @@ class Solution(object):
                     matrix[x][y] = matrix[point[0]][point[1]] + 1
                     queue.append((x, y))
         return matrix
+
+import sys
+from collections import deque
+from typing import List
+
+DIR = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+
+# 7:00
+class Solution2:
+    def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+        r = len(mat)
+        c = len(mat[0])
+
+        res = [[sys.maxsize for _ in range(len(mat[0]))] for _ in range(len(mat))]
+
+        stack = deque()
+
+        for i in range(len(mat)):
+            for j in range(len(mat[i])):
+                if mat[i][j] == 0:
+                    res[i][j] = 0
+                    stack.append((i, j))
+
+        while stack:
+            i, j = stack.popleft()
+
+            for dx, dy in DIR:
+                x, y = dx + i, dy + j
+                if x < 0 or x >= len(mat) or y < 0 or y >= len(mat[0]):
+                    continue
+                if res[i][j] < res[x][y]:
+                    res[x][y] = res[i][j] + 1
+                    stack.append((x, y))
+        return res
