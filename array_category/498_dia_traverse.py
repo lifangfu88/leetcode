@@ -4,6 +4,14 @@ from typing import List
 
 
 class Solution:
+    """
+    elements on the same dia meet this condition:
+    i+j is the same
+    thus, we can key on i+j for each element list
+    plus, the order in each list is decided by odd/even of i+j
+
+    O(n)
+    """
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
 
         m = len(mat)
